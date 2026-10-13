@@ -63,8 +63,7 @@ Start Ollama if it is not already running. If Ollama is unavailable, the app sti
 ## 3. Run
 
 ```bash
-streamlit run app.py
-```
+streamlit run integrated_app.py
 
 Open the local Streamlit URL shown in the terminal.
 
