@@ -1,0 +1,7 @@
+# Add ONLY inside the dedicated medical.truefoxaiinc.com SSL VirtualHost
+# after confirming Apache 2.4 proxy/WebSocket support and no conflicting Virtualmin ProxyPass.
+ProxyPreserveHost On
+RequestHeader set X-Forwarded-Proto "https"
+ProxyPass / http://127.0.0.1:18501/ upgrade=websocket
+ProxyPassReverse / http://127.0.0.1:18501/
+Header always set X-Robots-Tag "noindex, nofollow"
