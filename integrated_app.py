@@ -95,7 +95,7 @@ class ClinicalRadiologyPipeline:
         }
         
         # 4. Initialize Local LLM
-        self.llm = Ollama(model=ollama_model_name) 
+        self.llm = Ollama(model=ollama_model_name, base_url=os.getenv("OLLAMA_BASE_URL", "http://ollama:11434")) 
         
     def extract_validated_findings(self, image: Image.Image):
         # Convert incoming image to RGB tensor for BiomedCLIP
