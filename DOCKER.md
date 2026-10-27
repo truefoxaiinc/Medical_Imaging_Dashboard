@@ -55,7 +55,7 @@ docker compose down
 
 ## Important limitations
 
-- The `integrated_app.py` code uses LangChain's `Ollama` integration, which normally reads `OLLAMA_HOST`. Verify connectivity with a trial upload.
+- The `integrated_app.py` code uses LangChain's `Ollama` integration with an explicit `OLLAMA_BASE_URL` (`http://ollama:11434`). Verify connectivity with a trial upload.
 - Model dependencies have minimum rather than pinned versions, so builds are not yet reproducible.
 - A Streamlit health response confirms only that the web service is running, **not** that image inference, RAG or LLM work.
 - Existing model thresholds are hardcoded in source and are **not** proof of clinical validation. Do not use AI outputs as diagnostic findings.
