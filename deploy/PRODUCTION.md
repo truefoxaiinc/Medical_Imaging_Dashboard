@@ -22,18 +22,16 @@ Clone main after this PR is merged. Run commands from the repository directory a
 ```bash
 cp .env.example .env
 mkdir -p deploy .streamlit
-cp deploy/secrets.toml.example deploy/secrets.toml
-# Production override replaces the base secrets mount with deploy/secrets.toml.
-# Both bind mounts remain present after Compose merges volume entries, so avoid
-# conflicting mount targets: use the base .streamlit/secrets.toml instead.
-cp deploy/secrets.toml .streamlit/secrets.toml
-chmod 644 .streamlit/secrets.toml
-# Edit credentials, then ensure UID 10001 inside the container can read them.
+cp deploy/secrets.toml.example .streamlit/secrets.toml
+# Change credentials. File must be readable by container UID 10001.
 nano .streamlit/secrets.toml
+# If your deployment account has sudo, assign the secret to container UID 10001.
+sudo chown 10001:10001 .streamlit/secrets.toml
+sudo chmod 600 .streamlit/secrets.toml
 docker compose -p medical-imaging -f compose.yaml -f compose.production.yaml config
 ```
 
-**IMPORTANT:** Inspect the rendered Compose mounts. The production override is intended to replace the base secrets mount; Docker Compose volume merging uses container target as the uniqueness key. If both mounts remain, do not start the service. The production secret must be readable by container UID 10001 without making it publicly accessible; a dedicated deployment group/ACL is preferable to broad file permissions.
+**IMPORTANT:** Verify that the rendered Compose configuration mounts only `.streamlit/secrets.toml` at `/app/.streamlit/secrets.toml`. The file is owned by container UID 10001 and mode 600; edit it through a privileged account after ownership changes. Do not commit credentials.
 
 ```bash
 docker compose -p medical-imaging -f compose.yaml -f compose.production.yaml build dashboard
