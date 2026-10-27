@@ -10,7 +10,7 @@ services:
     ports:
       - "127.0.0.1:${DASHBOARD_PORT:-18501}:8501"
     environment:
-      OLLAMA_HOST: http://ollama:11434
+      OLLAMA_BASE_URL: http://ollama:11434
       HF_HOME: /home/app/.cache/huggingface
       TORCH_HOME: /home/app/.cache/torch
     volumes:
