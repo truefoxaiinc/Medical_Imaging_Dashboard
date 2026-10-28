@@ -13,7 +13,12 @@
 - GitHub root metadata confirms `medical.pem` is present in the public repository; its contents were not read. SEC-001 remains open and urgent.
 - See [BASE-001 baseline](BASE-001_BASELINE.md) for source inventory, limitations, verification and handoff.
 
-## GOV-001 documentation checkpoint\n- A separate documentation branch adds [master plan](PROJECT_MASTER_PLAN.md), [context index](AI_CONTEXT_INDEX.md), [feature registry](FEATURE_REGISTRY.md), [contract registry](CONTRACT_REGISTRY.md), [test strategy](TEST_STRATEGY.md), [deployment runbook](DEPLOYMENT_RUNBOOK.md), [token efficiency](TOKEN_EFFICIENCY.md), and [handoff](GOV-001_HANDOFF.md).\n- These are proposed guidance, not approved ADRs or evidence of runtime deployment. Existing policies and application code remain unchanged.\n- Documentation checks and PR review are required; runtime tests not run.\n\n## Decisions
+## GOV-001 documentation checkpoint
+- A separate documentation branch adds [master plan](PROJECT_MASTER_PLAN.md), [context index](AI_CONTEXT_INDEX.md), [feature registry](FEATURE_REGISTRY.md), [contract registry](CONTRACT_REGISTRY.md), [test strategy](TEST_STRATEGY.md), [deployment runbook](DEPLOYMENT_RUNBOOK.md), [token efficiency](TOKEN_EFFICIENCY.md), and [handoff](GOV-001_HANDOFF.md).
+- These are proposed guidance, not approved ADRs or evidence of runtime deployment. Existing policies and application code remain unchanged.
+- Documentation checks and PR review are required; runtime tests not run.
+
+## Decisions
 - Preserve existing working research demo.
 - New hospital platform should be modular and API-based, subject to approved ADR.
 - Model choice requires independent validation; Ollama is a runtime, not a measure of clinical accuracy.
