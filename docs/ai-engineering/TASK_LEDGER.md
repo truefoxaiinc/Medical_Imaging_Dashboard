@@ -6,7 +6,7 @@ Legend: TODO, IN_PROGRESS, BLOCKED, VERIFIED. Status is not evidence of test suc
 |---|---|---|---|---|---|
 | SEC-001 | P0 | Investigate reported exposed private key; rotate/revoke if real | DevSecOps | TODO | Documented incident closure |
 | SAFE-001 | P0 | Correct research-only UI and report approval claims | Clinical + Backend | TODO | UI/test assertions |
-| BASE-001 | P0 | Inventory code, dependencies, entrypoints and tests | Tech Lead | TODO | Baseline report |
+| BASE-001 | P0 | Inventory code, dependencies, entrypoints and tests | Tech Lead | IN_PROGRESS | Baseline report; runtime/test verification outstanding |
 | AI-001 | P0 | Verify OpenCLIP API contract and fix incorrect unpacking | AI Lead | TODO | Version-pinned tests |
 | AI-002 | P0 | Correct multi-label score semantics and uncertainty | AI Lead | TODO | Tests and score contract |
 | AI-003 | P1 | Patient-level validation and external evaluation protocol | AI + Clinical | TODO | Approved evaluation plan |
@@ -19,6 +19,13 @@ Legend: TODO, IN_PROGRESS, BLOCKED, VERIFIED. Status is not evidence of test suc
 | PACS-001 | P2 | Orthanc + OHIF DICOMweb workflow | Imaging Lead | TODO | Interop tests |
 | MLOPS-001 | P2 | Model registry, serving, monitoring and CI | MLOps | TODO | Benchmark/runbook |
 | PILOT-001 | P3 | Approved research pilot and external validation | Clinical/PM | BLOCKED | Ethics/data/regulatory approvals |
+
+## BASE-001 checkpoint — 2026-10-28
+- Documentation-only scope approved; branch `docs/base-001-reproducibility-baseline`.
+- Initial source evidence and remaining gaps: [BASE-001 baseline](BASE-001_BASELINE.md).
+- Runtime tests/CI were not executed; no code, dependency or infrastructure changes.
+- Keep IN_PROGRESS until runtime verification and review gates are satisfied. Do not mark VERIFIED on documentation alone.
+- SEC-001 remains P0 and is not resolved by this task.
 
 ## Task card template
 ```md
