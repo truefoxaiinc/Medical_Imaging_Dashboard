@@ -1,32 +1,36 @@
 # Current Project State — Living Checkpoint
 
-**Updated:** 2026-10-28  
-**Branch context:** documentation-only setup; no runtime changes.  
+**Updated:** 2026-10-28
+**Branch context:** documentation-only BASE-001 branch `docs/base-001-reproducibility-baseline`, based on `9088aba59aef6492ea41de35eb9929fb8da3f359`.
 **Status:** Research prototype. Hospital product is planned, not implemented.
 
 ## Known from GitHub source inspection
-- `README.md` describes research MVP with Streamlit, BiomedCLIP, RAG and Ollama.
-- `integrated_app.py` has Streamlit shared authentication, model initialization and hardcoded pathology thresholds.
-- `validate_thresholds.py` uses machine-specific dataset path and a first-1000-rows evaluation approach.
-- Prior audit reports exposed `medical.pem`, OpenCLIP scoring and approval integrity issues. Confirm and remediate; do not treat report as incident closure.
+- `README.md` describes research MVP with Streamlit, BiomedCLIP, RAG and Ollama; its clinical-validation/approval wording requires SAFE-001 review.
+- `Dockerfile` launches `integrated_app.py`; `compose.yaml` defines dashboard and Ollama; alternative Streamlit entrypoints exist.
+- `requirements.txt` uses minimum version ranges; base images include mutable tags. Runtime/test baseline not yet executed.
+- Root `tests/` and `.github/` paths returned 404 in targeted GitHub checks; this does not prove no tests exist elsewhere.
+- `validate_thresholds.py` uses machine-specific dataset path and first-1000-rows selection.
+- GitHub root metadata confirms `medical.pem` is present in the public repository; its contents were not read. SEC-001 remains open and urgent.
+- See [BASE-001 baseline](BASE-001_BASELINE.md) for source inventory, limitations, verification and handoff.
 
 ## Decisions
 - Preserve existing working research demo.
-- New hospital platform should be modular and API-based, subject to ADR.
+- New hospital platform should be modular and API-based, subject to approved ADR.
 - Model choice requires independent validation; Ollama is a runtime, not a measure of clinical accuracy.
 - Research-only UI and documentation until clinical/regulatory authorization.
+- BASE-001 is documentation only; no architecture, dependencies, security policy or runtime changed.
 
 ## Unknowns to inspect
-- Actual running branch/commit, dependency versions, model API contract and test status.
-- Full source inventory, active entrypoints, Docker environment and secrets exposure impact.
+- Exact runtime dependency resolution, working inference contract, test/CI status and deployment configuration.
+- Secret exposure impact and revocation status (DevSecOps only).
 - GPU VRAM, inference latency, Ollama model availability, datasets/licenses.
 - Regulatory intended use, hospital integration requirements and clinical validation evidence.
 
 ## Next authorized tasks
-1. P0 investigate `medical.pem` exposure and rotate affected secrets.
-2. Establish read-only inventory, test baseline and pinned dependency manifest.
-3. Reproduce OpenCLIP inference contract and multilabel scoring defects.
-4. Remove misleading clinical validation/approval claims in a scoped PR.
+1. P0 DevSecOps SEC-001 containment/rotation assessment with explicit authorization.
+2. Complete BASE-001 runtime/test baseline in an approved isolated environment.
+3. Reproduce OpenCLIP inference contract and multilabel scoring defects under AI-001/AI-002.
+4. Review misleading validation/approval claims under SAFE-001 with clinical/security owners.
 5. Build model evaluation protocol and DICOM golden tests.
 
 ## Update protocol
