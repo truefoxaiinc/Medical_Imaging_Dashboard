@@ -4,6 +4,7 @@ Legend: TODO, IN_PROGRESS, BLOCKED, VERIFIED. Status is not evidence of test suc
 
 | ID | Priority | Task | Owner | Status | Exit gate |
 |---|---|---|---|---|---|
+| GOV-001 | P1 | Documentation-only AI engineering governance and token efficiency | Tech Lead | IN_PROGRESS | Review of governance docs and evidence; draft PR |
 | SEC-001 | P0 | Investigate reported exposed private key; rotate/revoke if real | DevSecOps | TODO | Documented incident closure |
 | SAFE-001 | P0 | Correct research-only UI and report approval claims | Clinical + Backend | TODO | UI/test assertions |
 | BASE-001 | P0 | Inventory code, dependencies, entrypoints and tests | Tech Lead | IN_PROGRESS | Baseline report; runtime/test verification outstanding |
@@ -26,6 +27,12 @@ Legend: TODO, IN_PROGRESS, BLOCKED, VERIFIED. Status is not evidence of test suc
 - Runtime tests/CI were not executed; no code, dependency or infrastructure changes.
 - Keep IN_PROGRESS until runtime verification and review gates are satisfied. Do not mark VERIFIED on documentation alone.
 - SEC-001 remains P0 and is not resolved by this task.
+
+## GOV-001 checkpoint — 2026-10-28
+- Documentation-only scope approved; separate branch `docs/gov-001-ai-delivery-system`.
+- Proposed planning, context, feature, contract, testing, deployment and token-efficiency guides are linked in [GOV-001 handoff](GOV-001_HANDOFF.md).
+- No application or infrastructure changes; runtime checks not run. Human review required; do not mark VERIFIED from documentation alone.
+- SEC-001 remains P0 and unresolved.
 
 ## Task card template
 ```md
